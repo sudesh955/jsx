@@ -103,3 +103,7 @@ Renders a JSX element to an HTML string.
 - **context** (optional): A `Context` value for passing values to all components
 
 Returns `Promise<string>`.
+
+## Thanks
+
+- https://github.com/kitajs/html
