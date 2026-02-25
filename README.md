@@ -93,6 +93,21 @@ function App() {
 const html = await render(<App />, ctx);
 ```
 
+### Async Components
+
+Components can be asynchronous:
+
+```tsx
+async function User({ id }: { id: string }) {
+  const user = await fetchUser(id);
+  return <div>{user.name}</div>;
+}
+
+const html = await render(<User id="1" />);
+```
+
+The `render` function awaits all async components automatically.
+
 ## API
 
 ### `render(element, context?)`
