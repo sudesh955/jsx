@@ -812,7 +812,6 @@ declare namespace JSX {
     switch: HtmlSvgTag;
     symbol: HtmlSvgTag;
     table: HtmlTableTag;
-    tag: HtmlUnspecifiedTag;
     tbody: HtmlTag;
     td: HtmlTableDataCellTag;
     template: HtmlTag;
