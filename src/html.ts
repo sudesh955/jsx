@@ -553,10 +553,6 @@ declare namespace JSX {
     width?: undefined | number | string;
   }
 
-  interface HtmlUnspecifiedTag extends HtmlTag, Record<string, any> {
-    of: string;
-  }
-
   interface HtmlBodyTag {
     onafterprint?: undefined | string;
     onbeforeprint?: undefined | string;
