@@ -36,17 +36,46 @@ const html = await render(<Greeting name="World" />);
 // Output: <h1>Hello, World!</h1>
 ```
 
-### Fragments
+### Async Components
+
+Components can be asynchronous:
 
 ```tsx
-function Page() {
+async function User({ id }: { id: string }) {
+  const user = await fetchUser(id);
+  return <div>{user.name}</div>;
+}
+
+const html = await render(<User id="1" />);
+```
+
+The `render` function awaits all async components automatically.
+
+### Context
+
+```tsx
+class AppContext {
+  getTheme() {
+    return "dark";
+  }
+}
+
+const ctx = new AppContext();
+
+function Greeting(props: { name: string }, ctx: AppContext) {
+  const theme = ctx.getTheme();
+  return <div className={theme}>{props.name}</div>;
+}
+
+function App() {
   return (
-    <>
-      <h1>Title</h1>
-      <p>Content</p>
-    </>
+    <div>
+      <Greeting />
+    </div>
   );
 }
+
+const html = await render(<App />, ctx);
 ```
 
 ### Safe HTML
@@ -66,47 +95,6 @@ function Styled() {
   return <div style={{ color: "red", fontSize: "16px" }}>Styled</div>;
 }
 ```
-
-### Context
-
-```tsx
-class AppContext {
-  async getTheme() {
-    return "dark";
-  }
-}
-
-const ctx = new AppContext();
-
-function Greeting(props: { name: string }, ctx: AppContext) {
-  return <div></div>;
-}
-
-function App() {
-  return (
-    <div>
-      <Greeting />
-    </div>
-  );
-}
-
-const html = await render(<App />, ctx);
-```
-
-### Async Components
-
-Components can be asynchronous:
-
-```tsx
-async function User({ id }: { id: string }) {
-  const user = await fetchUser(id);
-  return <div>{user.name}</div>;
-}
-
-const html = await render(<User id="1" />);
-```
-
-The `render` function awaits all async components automatically.
 
 ## API
 

@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "name": "@vimpak/jsx",
   "collaborators": [
     "Sudesh Yadav <sudeshyadav955@gmail.com>"
@@ -8,6 +8,10 @@
   "files": [
     "./dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sudesh955/jsx"
+  },
   "main": "./dist/index.js",
   "exports": {
     ".": {
