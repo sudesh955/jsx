@@ -1,13 +1,17 @@
 {
   "compilerOptions": {
+    "paths": {
+      "src/*": ["./src/*"]
+    },
+    "rootDir": "./src",
+    "outDir": "./dist",
+
     "target": "ESNext",
     "module": "ESNext",
     "lib": ["ESNext"],
     "skipLibCheck": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
 
-    "baseUrl": "./",
-    "outDir": "./dist",
     "declaration": true,
 
     "strict": true,
@@ -17,5 +21,6 @@
 
     "jsx": "react-jsx",
     "jsxImportSource": "src"
-  }
+  },
+  "exclude": ["dist"]
 }

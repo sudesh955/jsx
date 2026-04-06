@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "name": "@vimpak/jsx",
   "collaborators": [
     "Sudesh Yadav <sudeshyadav955@gmail.com>"
@@ -21,6 +21,10 @@
     "./jsx-runtime": {
       "import": "./dist/jsx-runtime.js",
       "types": "./dist/jsx-runtime.d.ts"
+    },
+    "./jsx-dev-runtime": {
+      "import": "./dist/jsx-dev-runtime.js",
+      "types": "./dist/jsx-dev-runtime.d.ts"
     }
   },
   "scripts": {

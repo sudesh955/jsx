@@ -33,8 +33,8 @@ export type KiteNode =
   | boolean
   | number
   | string
-  | KiteElement
-  | KiteNode[];
+  | KiteNode[]
+  | KiteElement;
 
 export function jsxDEV(
   type: KiteElementType,
