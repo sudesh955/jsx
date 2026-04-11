@@ -1,6 +1,6 @@
 import { escapeHTML } from "bun";
-import { Fragment, KiteNode } from "./jsx.ts";
 import { stringifyStyle } from "./css.ts";
+import { Fragment, type KiteNode } from "./jsx.ts";
 
 const escape = escapeHTML;
 
