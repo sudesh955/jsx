@@ -1,6 +1,6 @@
 import { escapeHTML } from "bun";
-import { Fragment, KiteNode } from "./jsx";
-import { stringifyStyle } from "./css";
+import { Fragment, KiteNode } from "./jsx.ts";
+import { stringifyStyle } from "./css.ts";
 
 const escape = escapeHTML;
 
@@ -10,7 +10,7 @@ type RenderElement<
 > =
   | {
       props: P;
-      type: (props: P, ctx: Kite.Context | null) => KiteNode;
+      type: (props: P, ctx: unknown) => KiteNode;
     }
   | {
       type: typeof Fragment;
@@ -21,7 +21,7 @@ type RenderElement<
 function renderNode(
   el: KiteNode,
   parts: string[],
-  ctx: Kite.Context | null,
+  ctx: unknown,
 ): unknown | Promise<unknown> {
   if (typeof el === "string") return parts.push(escape(el));
   if (typeof el === "number") return parts.push(el.toString());
@@ -51,7 +51,7 @@ function renderNode(
 function renderHtml<K extends keyof JSX.IntrinsicElements = string>(
   el: { type: K; props: JSX.IntrinsicElements[K] },
   parts: string[],
-  ctx: Kite.Context | null,
+  ctx: unknown,
 ): unknown | Promise<unknown> {
   if (typeof el.type !== "string") throw new Error();
   const props = el.props;

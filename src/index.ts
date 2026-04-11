@@ -1,2 +1,2 @@
-import "./html";
-export { render } from "./render";
+import "./html.ts";
+export { render } from "./render.ts";

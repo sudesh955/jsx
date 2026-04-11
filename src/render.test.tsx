@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 
-import { render } from "./render";
+import { render } from "./render.ts";
 
 describe("render", () => {
   test("null", async () => {
